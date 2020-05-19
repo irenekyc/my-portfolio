@@ -1,0 +1,13 @@
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    min-height:100vh;
+    display:none;
+    background: rgba($main-color, 0.85);
+    overflow-y:scroll;
+}
+
+@import 'modal-menu';
+@import 'modal-portfolio';

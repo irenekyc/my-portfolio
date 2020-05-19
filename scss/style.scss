@@ -1,0 +1,237 @@
+@import 'variables';
+@import 'utilities';
+@import 'icons';
+@import 'modal';
+
+html{
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+body{
+    background: $main-color;
+    color: $main-text;
+    font-family: $main-font;
+    font-size:12px; 
+}
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+img{
+    width:100%;
+}
+
+a{
+    text-decoration:none;
+    color: $main-text;
+    &:hover{
+        color:$primary-color;
+    }
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    max-width:1100px;
+    background: $main-color;
+    z-index:999;
+
+    height: $nav-size;
+    input{
+        visibility: hidden;
+        width:0;
+        height:0;
+    }
+    h1{
+        font-size:16px;
+        line-height: $nav-size;
+    }
+    .btn-hamburger-outer{
+        height: $nav-size;
+        width: $nav-size;
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        .btn-hamburger{
+            width:50%;
+            height:50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items:center;
+            transition:all 1s;
+            cursor:pointer;
+
+            .btn-line{
+                width:80%;
+                height: 3px;
+                background: $primary-color;
+                transition:all 1s;
+            }
+
+            &.active{
+                transform:rotate(135deg);
+                .btn-line{
+                    background:$main-text;
+                    &:nth-child(3){
+                        display:none;
+                    }
+                    &:nth-child(2){
+                        transform: rotate(270deg);
+                    }
+                    &:nth-child(4){
+                        transform: translate3d(0, -11px, 0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.hero-banner{
+    width:100%;
+    padding-top:60px;
+
+    .hero-banner-inner{
+        width:100%;
+        max-width:600px;
+        margin-right:auto;
+        margin-left:auto;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'card2 card2'
+        'card1 card3';
+        align-items:center;
+        text-align:center;
+
+        .hero-banner-card{
+            background: $main-dark;
+            padding:2rem;
+            
+
+            h1{
+                font-family: monospace;
+                font-weight:900;
+                font-size:3rem;
+            }
+
+        }
+        #learning-hours{
+            grid-area: card1;
+        }
+        #coding-hours{
+            grid-area: card2;
+            align-self:center;
+            margin-right:auto;
+            margin-left:auto;
+            h1{
+                font-size:3.3rem;
+            }
+        }
+        #projects{
+            grid-area:card3;
+        }
+    }
+  
+}
+
+.filter-session{
+    border:1px solid $primary-color;
+    color: $primary-color;
+    height:40px;
+    .filter-session-inner{
+        height:100%;
+        width:80%;
+        max-width:600px;
+        margin-right:auto;
+        margin-left:auto;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button{
+            border:none;
+            outline:none;
+            color: $main-text;
+            background: transparent;
+            cursor: pointer;
+
+            &:hover{
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+.portfolio-container{
+    padding:1rem 0;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items:center;
+    max-width:1100px;
+    margin-right:auto;
+    margin-left:auto;
+
+    .portfolio-card{
+        width:320px;
+        margin:12px;
+        background: $main-text;
+        color: $main-dark;
+        height:400px;
+        padding:1.5rem 1rem;
+        border-radius:25px;
+        display:flex;
+        flex-direction:column;
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+        *{
+            margin-bottom:0.5rem;
+        }
+        a{
+            color: $main-dark;
+            font-size:1rem;
+            &:hover{
+                color: $primary-color;
+            }
+        }
+        &-heading{
+            padding:0 1rem;
+            display:flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            &-main{
+                font-size:2.5rem;
+            }
+        }
+        .portoflio-card-content{
+            flex:1;
+        }
+        button{
+            border:1px solid $main-dark;
+            background: transparent;
+            padding:4px 8px;
+            outline:none;
+            cursor: pointer;
+            &:hover{
+                color: $primary-color;
+                border: 1px solid $primary-color;
+            }
+        }
+    }
+}
+
+footer{
+    text-align: center;
+}
+
+@import 'responsive';

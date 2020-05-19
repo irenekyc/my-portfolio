@@ -1,0 +1,76 @@
+.modal-menu{
+    display:flex;
+    flex-direction: column;
+    position:absolute;
+    text-align:center;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    display:none;
+    
+    &-about{
+        flex:1;
+        width:100%;
+        padding:3rem 0;
+        font-size:1rem;
+        transform: translate3d(-100%, 0,0);
+        opacity:0;
+        transition:all 1s;
+        &-image{
+            width:100px;
+            height:100px;
+            img{
+                width:100%;
+                border-radius: 50%;
+            }
+        }
+    }
+    &-contact{
+        width:100%;
+        padding: 3rem;
+        flex:2;
+        ul{
+            list-style: none;
+            li{
+                margin:0.8rem 0;
+                font-size:1rem;
+                transform: translate3d(4rem, 0, 0);
+                transition:all 1s;
+                opacity:0;
+            }
+        }
+    }
+}
+
+
+@keyframes fadeIn{
+0%{
+    opacity:0;
+}
+100%{
+    opacity:1;
+    transform: translate3d(0,0,0);
+}
+}
+
+.modal{
+&.show-menu{
+    display:block;
+    .modal-menu{
+        display:flex;
+    }
+    .modal-menu-about{
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+    .modal-menu-contact ul{
+        li{
+            animation: fadeIn 0.5s ease-in-out forwards;
+            @for $n from 1 through 5 {
+                &:nth-child(#{$n}){
+                    animation-delay: 0.2s * $n;
+                }
+            }
+        }
+    }
+}
+}
