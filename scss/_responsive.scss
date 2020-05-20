@@ -4,6 +4,11 @@
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-areas: 'card1 card2 card3';
         }
+        #coding-hours
+        {
+         align-self: unset;;
+        margin-right:unset;
+        margin-left:unset;}
     }
     .modal-menu{
         flex-direction:row;
